@@ -6,10 +6,8 @@ FROM swift:5.0 as builder
 ARG env
 
 RUN apt-get -qq update && apt-get install -y \
-  libssl-dev zlib1g-dev \
+  libssl-dev zlib1g-dev gnustep gnustep-devel \
   && rm -r /var/lib/apt/lists/*
-RUN apt-get -qq update && apt-get install gnustep -y \
-  gnustep-devel
 WORKDIR /app
 COPY . .
 RUN mkdir -p /build/lib && cp -R /usr/lib/swift/linux/*.so* /build/lib

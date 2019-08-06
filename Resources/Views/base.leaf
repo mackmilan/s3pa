@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>S3PA</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/vendor/uk/css/uikit.min.css"/>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="/vendor/vuejs/vue.js"></script>
+    <script src="/vendor/uk/js/uikit.min.js"></script>
+    <script src="/vendor/uk/js/uikit-icons.min.js"></script>
+</head>
+<body>
+
+<div id="app" uuid="#(uuid)" context="#(context)">
+    #get(body)
+</div>
+
+<script src="/vendor/rip/rip.js"></script>
+<script src="/vendor/uikit/ui-button.js"></script>
+<script src="/vendor/uikit/application.js"></script>
+
+</body>
+</html>

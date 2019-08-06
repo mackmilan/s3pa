@@ -1,0 +1,5 @@
+#set("body") {
+    <ui-button id="button" caption="Backend"></ui-button>
+}
+
+#embed("base")

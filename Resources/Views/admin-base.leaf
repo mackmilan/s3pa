@@ -1,0 +1,15 @@
+#set("body") {
+<ui-navbar id="#uuid()">
+    <ui-nav-item caption="Item" action="openHome"></ui-nav-item>
+    <ui-nav-item caption="Item 2" action="openContact"></ui-nav-item>
+    <ui-navbar-dropdown caption="Parent">
+        <ui-nav-item caption="Child 1" action="openChildPage"></ui-nav-item>
+    </ui-navbar-dropdown>
+</ui-navbar>
+
+<div class="uk-margin">
+    #get(content)
+</div>
+}
+
+#embed("base")

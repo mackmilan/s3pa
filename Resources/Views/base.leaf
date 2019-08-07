@@ -14,12 +14,17 @@
 </head>
 <body>
 
-<div id="app" uuid="#(uuid)" context="#(context)">
+<div id="app" uuid="#(uuid)" context="#(context)" class="uk-background-muted uk-padding">
     #get(body)
 </div>
 
 <script src="/vendor/rip/rip.js"></script>
+<script src="/vendor/uikit/ui-container.js"></script>
+<script src="/vendor/uikit/ui-card.js"></script>
+<script src="/vendor/uikit/ui-navbar.js"></script>
+<script src="/vendor/uikit/ui-form.js"></script>
 <script src="/vendor/uikit/ui-button.js"></script>
+<script src="/vendor/uikit/ui-image.js"></script>
 <script src="/vendor/uikit/application.js"></script>
 
 </body>

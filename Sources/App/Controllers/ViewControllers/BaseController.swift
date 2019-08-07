@@ -22,4 +22,12 @@ open class BaseController: NSObject {
         }
     }
 
+    func createSession(req: Request, context: String) {
+        self.req = req
+
+        let uuid = UUID().uuidString
+        try? self.req!.session()["uuid"] = uuid
+        try? self.req!.session()["context"] = context
+    }
+
 }

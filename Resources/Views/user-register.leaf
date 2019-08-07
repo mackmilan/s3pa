@@ -3,7 +3,7 @@
     <ui-card>
         <ui-image src="logo.jpeg" alt="Borne Soluções"></ui-image>
 
-        <ui-form id="#uuid()" v-bind:datamodel="#(dataModel)">
+        <ui-form id="#uuid()" v-bind:datamodel="#(dataModel)" action="/api/user">
             <ui-form-legend caption="Cadastro de usuário" type="emphasis"></ui-form-legend>
 
             <ui-textfield placeholder="Nome" name="nome" type="user"></ui-textfield>
@@ -11,7 +11,7 @@
             <ui-passwordfield placeholder="Senha" name="password"></ui-passwordfield>
             <ui-passwordfield placeholder="Confirme sua senha" name="password_retype"></ui-passwordfield>
 
-            <ui-button id="button" caption="Salvar"></ui-button>
+            <ui-button id="button" caption="Salvar" :submit="true"></ui-button>
         </ui-form>
     </ui-card>
 </ui-container>

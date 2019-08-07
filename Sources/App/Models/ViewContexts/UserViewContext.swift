@@ -1,11 +1,10 @@
 //
-// Created by Andre Silva on 2019-08-05.
+// Created by Andre Silva on 2019-08-06.
 //
 
-import Foundation
 import Vapor
 
-class UIViewContext: BaseViewContext {
+class UserViewContext: BaseViewContext {
 
     required init(session: Session, dataModel: BaseDataModel) {
         super.init(session: session, dataModel: dataModel)
@@ -14,9 +13,10 @@ class UIViewContext: BaseViewContext {
     required init(from decoder: Decoder) {
         super.init(from: decoder)
     }
+
 }
 
-class UIDataModel: BaseDataModel {
+class UserDataModel: BaseDataModel {
 
     var nome: String = ""
     var email: String = ""
@@ -28,6 +28,14 @@ class UIDataModel: BaseDataModel {
 
     required init(from decoder: Decoder) {
         super.init(from: decoder)
+    }
+
+    init(nome: String, email: String, password: String) {
+        super.init()
+
+        self.nome = nome
+        self.email = email
+        self.password = password
     }
 
 }

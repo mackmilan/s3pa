@@ -16,9 +16,10 @@ final class PollController: RouteCollection {
         let s = try req.session()
         let response = try PollResponse(uuid: s["uuid"]!, context: s["context"]!)
 
-        let controllerRef = NSClassFromString(s["context"]!) as! BaseController.Type
-        let controllerIns = controllerRef.init(req)
-        controllerIns[dynamicMember: content.source]
+        // TODO implement dynamic class instances
+//        let controllerRef = NSClassFromString(s["context"]!) as! BaseController.Type
+//        let controllerIns = controllerRef.init(req)
+//        controllerIns[dynamicMember: content.source]
 
         let res = req.makeResponse()
         res.http.body = HTTPBody(string: try String(data: response.encode(), encoding: .utf8)!)

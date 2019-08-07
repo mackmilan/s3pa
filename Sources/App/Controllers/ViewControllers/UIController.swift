@@ -5,32 +5,32 @@
 import Foundation
 import Vapor
 
-@objc(UIController)
-final class UIController: BaseController {
-
-    var button: UIButton = UIButton(id: "button")
+final class UIController: BaseController, RouteCollection {
 
     override required init(_ req: Request? = nil) {
         super.init(req)
     }
 
-    override subscript(dynamicMember member: String) -> Void {
-        switch (member) {
-        case "button":
-            self.button.onClick(action: { () -> Void in
-                print(try self.req?.session()["uuid"])
-            })
-        default:
-            break
-        }
+    func boot(router: Router) throws {
+        let uiRoutes = router.grouped("ui")
+        uiRoutes.get("", use: index)
+
+        let controllerRoutes = uiRoutes.grouped("UIController")
+        controllerRoutes.post(PollRequest.self, at: "button", use: button)
     }
 
     func index(_ req: Request) throws -> Future<View> {
-        let uuid = UUID().uuidString
-        try req.session()["uuid"] = uuid
-        try req.session()["context"] = "UIController"
+        self.createSession(req: req, context: "UIController")
 
-        return try req.view().render("index", UIViewContext(uuid: uuid, context: "UIController"))
+        let viewContext = UIViewContext(session: try req.session(), dataModel: UIDataModel())
+
+        return try req.view().render("index", viewContext)
+    }
+
+    func button(_ req: Request, content: PollRequest) throws -> Response {
+        let response = req.makeResponse()
+
+        return response
     }
 
 }

@@ -21,7 +21,6 @@
     <mapping directory="$PROJECT_DIR$/.build/checkouts/swift-nio-ssl-support" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/.build/checkouts/swift-nio-zlib-support" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/.build/checkouts/template-kit" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/.build/checkouts/ui-kit" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/.build/checkouts/url-encoded-form" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/.build/checkouts/validation" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/.build/checkouts/vapor" vcs="Git" />

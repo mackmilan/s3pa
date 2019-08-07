@@ -1,23 +1,38 @@
 Vue.component('ui-button', {
-   props: ['caption', 'id'],
+   props: ['action', 'caption', 'id', 'submit'],
    template: `
-      <button :id="id" type="button" v-on:click="onClick" class="uk-button uk-button-primary">{{ caption }}</button>
+      <button :id="id" type="button" v-on:click="onClick($event)" class="uk-button uk-button-primary">
+         {{ caption }}
+      </button>
    `,
    methods: {
       onClick: function (ev) {
-         axios({
-            method: 'post',
-            url: '/s3pa/poll/',
-            responseType: 'json',
-            data: {
-               uuid: uuid,
-               context: context,
-               source: this.id,
-               target: 'onClick'
+         if (this.submit) {
+            if (this.$parent.action) {
+               var data = {
+                  uuid: uuid,
+                  context: context,
+                  source: this.id,
+                  data: this.$parent.datamodel || {}
+               }
+
+               console.log(data);
+
+               axios({
+                  method: 'post',
+                  url: this.$parent.action,
+                  responseType: 'json',
+                  data: this.$parent.datamodel
+               }).then(function (response) {
+                  console.log(response);
+               });
+            } else {
+               UIkit.notification({
+                  message: '<span uk-icon="icon: warning"></span> Ação não definida',
+                  status: 'warning'
+               })
             }
-         }).then(function (response) {
-            console.log(response);
-         });
+         }
       }
    }
 });

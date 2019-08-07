@@ -9,6 +9,11 @@ public func routes(_ router: Router) throws {
             try UIController().index(req)
         }
 
+        // UI Routes
+        try router.register(collection: UserController())
+
+        // API Routes
+        try router.register(collection: UserAPIController())
         try router.register(collection: SSEController())
         try router.register(collection: PollController())
     }

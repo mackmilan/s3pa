@@ -10,6 +10,7 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
     services.register { container -> LeafTagConfig in
         var config = LeafTagConfig.default()
         config.use(SessionTag(), as: "session")
+        config.use(UUIDTag(), as: "uuid")
         return config
     }
 
@@ -29,11 +30,4 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
     services.register(databasesConfig)
 
     setupRepositories(services: &services, config: &config)
-
-    // Configure migrations
-//    services.register { container -> MigrationConfig in
-//        var migrationConfig = MigrationConfig()
-//        try migrate(migrations: &migrationConfig)
-//        return migrationConfig
-//    }
 }
